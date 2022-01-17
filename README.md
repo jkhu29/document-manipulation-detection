@@ -7,15 +7,19 @@ task: --> [tianchi](https://tianchi.aliyun.com/competition/entrance/531812/forum
 1. image segmentation
 2. salient object detection
 
-### seg
+### image segmentation
 
-- use ResNeXT as encoder;
-- use UNet framework;
-- use DAHead as decode_head;
+- use ResNeXT | Res2Net | SeResNeXT as encoder;
+- use UNet | R2UNet framework;
+- use DAHead | PSPHead as decode_head;
 
 see [seg model](./segmentation/README.md)
 
-mIoU: 
+### salient object detection
+
+- use U2Net | EGNet | CSF+Res2Net;
+
+see [det model](./detection/README.md)
 
 ## usage
 
@@ -27,7 +31,5 @@ python -W ignore train.py --batch_size $batch_size --niter $niter --lr $lr
 
 ## todo
 
-- [ ] refine the u2net
-- [ ] add: [EGNet](https://github.com/JXingZhao/EGNet/)
 - [ ] data aug
 - [ ] model fusion

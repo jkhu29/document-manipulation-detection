@@ -10,8 +10,8 @@ data_path = "./data/train"
 mask_path = "./data/train_mask"
 
 cnt = 0
-size_image = 256
-stride = 256
+size_image = 512
+stride = 100
 train_writer = tfrecord.TFRecordWriter("train.tfrecord")
 valid_writer = tfrecord.TFRecordWriter("valid.tfrecord")
 
@@ -29,7 +29,7 @@ for img_name in os.listdir(data_path):
             if np.mean(label_part) < 30:
                 continue
 
-            if cnt < 4000:
+            if cnt < 8000:
                 train_writer.write({
                     "inputs": (img_part.tobytes(), "byte"),
                     "labels": (label_part.tobytes(), "byte"),

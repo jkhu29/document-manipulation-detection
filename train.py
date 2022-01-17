@@ -14,7 +14,7 @@ from torchvision import transforms
 
 from tqdm import tqdm
 
-import segmentation.metrics as metrics
+import metrics as metrics
 from segmentation.models import ResNeXTDAHead
 
 import utils
@@ -47,7 +47,7 @@ train_dataloader = dataloader.DataLoader(
     pin_memory=True,
     drop_last=True
 )
-length = 4000
+length = 8000
 
 valid_dataset = TFRecordDataset("valid.tfrecord", None, description)
 valid_dataloader = dataloader.DataLoader(
@@ -58,7 +58,7 @@ valid_dataloader = dataloader.DataLoader(
 )
 
 # models init
-model = ResNeXTDAHead(img_size=256, pretrain=True).to(device)
+model = ResNeXTDAHead(img_size=512).to(device)
 
 # criterion init
 criterion = nn.BCELoss().to(device)
